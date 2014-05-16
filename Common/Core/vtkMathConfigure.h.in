@@ -49,11 +49,11 @@
 #endif
 
 // Make macros from _isnan(), _finite() if they exist (there is no _isinf)
-#if !defined(VTK_HAS_ISNAN) && (defined(VTK_HAS__ISNAN) || defined(_isnan))
+#if !defined(VTK_HAS_ISNAN) && !defined(VTK_HAS_STD_ISNAN) && (defined(VTK_HAS__ISNAN) || defined(_isnan))
 # define isnan(x) _isnan(x)
 # define VTK_HAS_ISNAN 1
 #endif
-#if !defined(VTK_HAS_FINITE) && (defined(VTK_HAS__FINITE) || defined(_finite))
+#if !defined(VTK_HAS_FINITE) && !defined(VTK_HAS_STD_ISFINITE) && (defined(VTK_HAS__FINITE) || defined(_finite))
 # define finite(x) _finite(x)
 # define VTK_HAS_FINITE 1
 #endif

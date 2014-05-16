@@ -1276,7 +1276,7 @@ inline int vtkMath::IsInf(double x)
 #define VTK_MATH_ISNAN_IS_INLINE
 inline int vtkMath::IsNan(double x)
 {
-#if defined(VTK_HAS_STD_ISNAN)
+#if defined(VTK_HAS_STD_ISNAN) && !defined(isnan)
   return std::isnan(x);
 #else
   return (isnan(x) != 0); // Force conversion to bool
