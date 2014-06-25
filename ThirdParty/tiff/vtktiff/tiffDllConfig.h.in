@@ -1,6 +1,15 @@
 #ifndef _tiffDllConfig_h
 #define _tiffDllConfig_h
 
+#ifdef _WIN32
+#  ifndef WINDOWS
+#    define WINDOWS
+#  endif
+#  ifndef _WINDOWS
+#    define _WINDOWS
+#  endif
+#endif
+
 #cmakedefine TIFFDLL
 #cmakedefine TIFFSTATIC
 
