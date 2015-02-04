@@ -64,6 +64,11 @@ endif(HDF5_ENABLE_Z_LIB_SUPPORT)
 
 add_subdirectory(vtkhdf5)
 
+if(NOT CMAKE_CROSSCOMPILING)
+  vtk_compile_tools_target_export(H5detect)
+  vtk_compile_tools_target_export(H5make_libsettings)
+endif()
+
 foreach(lib
     vtkhdf5
     vtkhdf5_hl
